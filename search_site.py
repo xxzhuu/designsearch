@@ -93,6 +93,10 @@ def search_iconfont(site):
     search_site = 'https://www.iconfont.cn/search/index?q={}&page=1&tag=hand'.format(site)
     wb.open(search_site)
 
+def search_nipic_icon(site):
+    search_site = 'http://soso.nipic.com/?q={}+icon'.format(site)
+    wb.open(search_site)
+    
 #搜mockup
 def search_unblast(site):
     search_site = 'https://unblast.com/search/{}/'.format(site)
