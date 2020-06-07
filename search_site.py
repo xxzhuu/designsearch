@@ -25,6 +25,15 @@ def search_designinspiration(site):
 def search_inspirationde(site):
     search_site = 'https://www.inspirationde.com/?s={}&q='.format(site)
     wb.open(search_site)
+
+def search_zcool_cn(site):
+    search_site = 'https://www.zcool.com.cn/search/content?&word={}'.format(site)
+    wb.open(search_site)
+
+def search_gtn9_cn(site):
+    search_site = 'https://www.gtn9.com/search_list.aspx?keyword={}&type=0&orderType=0&page=1'.format(site)
+    wb.open(search_site)
+
 #搜索图片
 def search_picjumbo(site):
     search_site = 'https://picjumbo.com/search/{}'.format(site)
@@ -61,6 +70,14 @@ def search_pngtree(site):
 
 def search_favpng(site):
     search_site = 'https://favpng.com/png_search/{}'.format(site)
+    wb.open(search_site)
+
+def search_stickpng(site):
+    search_site = 'https://www.stickpng.com/search?q={}&page=1'.format(site)
+    wb.open(search_site)
+
+def search_pngimg(site):
+    search_site = 'http://pngimg.com/search/?page=1&search={}'.format(site)
     wb.open(search_site)
 
 #搜矢量

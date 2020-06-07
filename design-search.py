@@ -2,8 +2,10 @@
 import tkinter as tk
 import webbrowser as wb
 from tkinter import ttk
+from urllib.parse import quote
+from googletrans import Translator
 from search_site import *
-from googletranslate import *
+#from googletranslate import *
 
 window = tk.Tk()
 window.title('Design search')
@@ -48,59 +50,77 @@ e1.pack()
 def var_text():
     #global site
     site = e1.get()
-    #site = Translator(site)
-    return site
+    translate = Translator(service_urls = ['translate.google.cn'])
+    site_en = translate.translate(str(site)).text
+    site_cn = quote(site)
+    print(site_en,site_cn)
+    return site_en,site_cn
 
 #判断是否为中文
-def is_chinese(site):
-    for _char in site:
-        if not '\u4e00' <= _char <='\u9fa5':
-            return False
-    return True
+#def is_chinese(site):
+    #for _char in site:
+       # if not '\u4e00' <= _char <='\u9fa5':
+            #return False
+    #return True
 
 def search_inspiration():
     site=var_text()
-    search_pinterest(site)
-    search_dribbble(site)
-    search_behance(site)
-    search_google(site)
+    site_en = site[0]
+    site_cn = site[1]
+    search_pinterest(site_en)
+    search_dribbble(site_en)
+    search_behance(site_en)
+    search_google(site_en)
+    search_zcool_cn(site_cn)
+    search_gtn9_cn(site_cn)
 
 def search_image():
     site=var_text()
-    search_picjumbo(site)
-    search_unsplash(site)
-    search_pixabay(site)
-    search_pexels(site)
-    search_envato(site)
-    search_shopify(site)
+    site_en = site[0]
+    site_cn = site[1]
+    search_picjumbo(site_en)
+    search_unsplash(site_en)
+    search_pixabay(site_en)
+    search_pexels(site_en)
+    search_envato(site_en)
+    search_shopify(site_en)
 
 def search_png():
     site=var_text()
-    search_cleanpng(site)
-    search_pngtree(site)
-    search_favpng(site)
+    site_en = site[0]
+    site_cn = site[1]
+    search_cleanpng(site_en)
+    search_stickpng(site_en)
+    search_pngtree(site_en)
+    search_favpng(site_en)
+    search_pngimg(site_en)
 
 def search_vector():
     site=var_text()
-    search_freepic(site)
-    search_vecteezy(site)
-    search_nipic(site)
-    search_vectstock(site)
+    site_en = site[0]
+    site_cn = site[1]
+    search_freepic(site_en)
+    search_vecteezy(site_en)
+    search_nipic(site_en)
+    search_vectstock(site_en)
 
 def search_icon():
     site=var_text()
-    search_icons8(site)
-    search_thenounproject(site)
-    search_nipic_icon(site)
-    search_iconfont(site)
+    site_en = site[0]
+    site_cn = site[1]
+    search_icons8(site_en)
+    search_thenounproject(site_en)
+    search_nipic_icon(site_en)
+    search_iconfont(site_en)
 
 def search_mockup():
-    comboxlist.get()
     site=var_text()
-    search_unblast(site)
-    search_placeit(site)
-    search_mockupworld(site)
-    search_mockupplanet(site)
+    site_en = site[0]
+    site_cn = site[1]
+    search_unblast(site_en)
+    search_placeit(site_en)
+    search_mockupworld(site_en)
+    search_mockupplanet(site_en)
     
 #创建默认搜索框
 b = tk.Button(window, text = 'search_ins', font = ('Arial',18), width = 20,height = 2,command = search_inspiration)
